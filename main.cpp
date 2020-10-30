@@ -120,29 +120,30 @@ typename std::enable_if<std::is_same<T, Trapeze<typename T::type>>::value, void>
 }
 
 
-template <class T, size_t index = 0>
+template<class T, size_t index = 0>
 typename std::enable_if<is_tuple<T>::value, double>::type area(T &tup) {
     if constexpr (index < std::tuple_size<T>::value) {
         double value = area_fig(std::get<index>(tup));
-        value += area<T, index+1>(tup);
+        value += area<T, index + 1>(tup);
         return value;
-    } else {
+    }
+    else {
         return 0;
     }
 }
 
-template <class T>
-typename std::enable_if<std::is_same<T, Rectangle<typename T::type>>::value, double>::type area_fig(const T &req){
+template<class T>
+typename std::enable_if<std::is_same<T, Rectangle<typename T::type>>::value, double>::type area_fig(const T &req) {
     return req.a * req.b;
 }
 
-template <class T>
-typename std::enable_if<std::is_same<T, Rhombus<typename T::type>>::value, double>::type area_fig(const T &rum){
+template<class T>
+typename std::enable_if<std::is_same<T, Rhombus<typename T::type>>::value, double>::type area_fig(const T &rum) {
     return rum.d1 * rum.d2 / 2;
 }
 
-template <class T>
-typename std::enable_if<std::is_same<T, Trapeze<typename T::type>>::value, double>::type area_fig(const T &tra){
+template<class T>
+typename std::enable_if<std::is_same<T, Trapeze<typename T::type>>::value, double>::type area_fig(const T &tra) {
     double diff = (std::fabs(tra.a - tra.b)) / 2.0;
     double height = std::sqrt(std::fabs(tra.c * tra.c - diff * diff));
     return height * (tra.a + tra.b) / 2.0;
@@ -153,7 +154,7 @@ int main() {
     int ix = 0, iy = 0, ia = 0, ib = 0, ic = 0;
     double dx = 0, dy = 0, da = 0, db = 0, dc = 0;
 
-    try{
+    try {
         std::cout << "Rectangle<int>. There are 4 parameters:\ncoord point\n2 edges" << std::endl;
         std::cin >> ix >> iy >> ia >> ib;
         Rectangle<int> req1(ix, iy, ia, ib);
@@ -182,16 +183,16 @@ int main() {
         std::cin >> dx >> dy >> da >> db >> dc;
         Trapeze<double> tra2(dx, dy, da, db, dc);
 
-        std::tuple< Rectangle<int>, Rhombus<int>, Trapeze<int>,
-                    Rectangle<double>, Rhombus<double>, Trapeze<double> >
-                    tup{req1, rum1, tra1, req2, rum2, tra2};
+        std::tuple<Rectangle<int>, Rhombus<int>, Trapeze<int>,
+                Rectangle<double>, Rhombus<double>, Trapeze<double> >
+                tup{req1, rum1, tra1, req2, rum2, tra2};
 
         std::cout << "Coord:" << std::endl;
         print(tup);
         double ts = area(tup);
         std::cout << "Total area: " << ts << std::endl;
     }
-    catch (std::invalid_argument& e) {
+    catch (std::invalid_argument &e) {
         std::cout << e.what() << std::endl;
         return 1;
     }
