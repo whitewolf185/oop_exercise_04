@@ -1,0 +1,19 @@
+Rectangle<int>. There are 4 parameters:
+coord point
+2 edges
+1 1 1 1
+Rhombus<int>. There are 4 parameters:
+coord point
+2 edges
+1 1 1 1
+Trapeze<int>. There are 5 parameters:
+coord points
+3 edges
+1 1 1 1 1
+Rectangle<double>. There are 4 parameters:
+coord point
+2 edges
+f f f f f
+Invalid Rectangle parameters
+
+Process finished with exit code 1

@@ -144,7 +144,7 @@ typename std::enable_if<std::is_same<T, Rhombus<typename T::type>>::value, doubl
 template <class T>
 typename std::enable_if<std::is_same<T, Trapeze<typename T::type>>::value, double>::type area_fig(const T &tra){
     double diff = (std::fabs(tra.a - tra.b)) / 2.0;
-    double height = std::sqrt(tra.c * tra.c - diff * diff);
+    double height = std::sqrt(std::fabs(tra.c * tra.c - diff * diff));
     return height * (tra.a + tra.b) / 2.0;
 }
 
@@ -154,7 +154,7 @@ int main() {
     double dx = 0, dy = 0, da = 0, db = 0, dc = 0;
 
     try{
-        std::cout << "Rectangle<int>. There are 4 parameters:\n1 coord point\n2 edges" << std::endl;
+        std::cout << "Rectangle<int>. There are 4 parameters:\ncoord point\n2 edges" << std::endl;
         std::cin >> ix >> iy >> ia >> ib;
         Rectangle<int> req1(ix, iy, ia, ib);
         ix = iy = ia = ib = 0;
@@ -164,7 +164,7 @@ int main() {
         Rhombus<int> rum1(ix, iy, ia, ib);
         ix = iy = ia = ib = 0;
 
-        std::cout << "Trapeze<int>. There are 5 parameters:\ncoord points" << std::endl;
+        std::cout << "Trapeze<int>. There are 5 parameters:\ncoord points\n3 edges" << std::endl;
         std::cin >> ix >> iy >> ia >> ib >> ic;
         Trapeze<int> tra1(ix, iy, ia, ib, ic);
 

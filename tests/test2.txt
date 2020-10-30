@@ -1,0 +1,46 @@
+Rectangle<int>. There are 4 parameters:
+coord point
+2 edges
+1 1 2 2
+Rhombus<int>. There are 4 parameters:
+coord point
+2 edges
+2 2 8 1
+Trapeze<int>. There are 5 parameters:
+coord points
+3 edges
+4 8 8 1 2
+Rectangle<double>. There are 4 parameters:
+coord point
+2 edges
+3 2 2 2
+Rhombus<double>. There are 4 parameters:
+coord point
+2 edges
+3 4 5 6
+Trapeze<double>. There are 5 parameters:
+coord points
+3 edges
+7 8 8 10 11
+Coord:
+Point coord: (1, 1)
+Edges: a=2 b=2
+
+Point coord: (2, 2)
+Edges: d1=8 d2=1
+
+Point coord: (4, 8)
+Edges: a=8 b=1 c=2
+
+Point coord: (3, 2)
+Edges: a=2 b=2
+
+Point coord: (3, 4)
+Edges: d1=5 d2=6
+
+Point coord: (7, 8)
+Edges: a=8 b=10 c=11
+
+Total area: 138.515
+
+Process finished with exit code 0
